@@ -15,6 +15,10 @@ import toast from "react-hot-toast";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_VOTE } from "../graphql/mutations";
 import { GET_ALL_VOTES_BY_POST_ID } from "../graphql/queries";
+import pl from 'timeago.js/lib/lang/pl';
+import * as timeago from 'timeago.js'
+
+timeago.register('pl', pl);
 
 type Props = {
   post: Post;
@@ -103,10 +107,10 @@ function Post({ post }: Props) {
                 <span className="font-bold text-black hover:text-blue-400 hover:underline">
                   d/{post.subreddit[0]?.topic}
                 </span>{" "}
-                | Posted by u/ {post.username}{" "}
+                | Utworzony przez u/ {post.username}{" "}
                 <TimeAgo
                   datetime={post.subreddit[0].created_at}
-                  locale="pl_PL"
+                  locale='pl'
                 />
               </p>
             </Link>
@@ -126,7 +130,7 @@ function Post({ post }: Props) {
             </div>
             <div className="postButtons">
               <ShareIcon className="h-6 w-6" />
-              <p className="hidden sm:inline"> Udostępnij</p>
+              <p className="hidden sm:inline">Udostępnij</p>
             </div>
             <div className="postButtons">
               <BookmarkIcon className="h-6 w-6" />
