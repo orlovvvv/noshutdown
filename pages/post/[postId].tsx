@@ -51,7 +51,7 @@ function PostPage() {
 
     setValue("comment", "");
 
-    toast.success("Komentaśrz przesłany", {
+    toast.success("Komentarz przesłany", {
       id: notification,
     });
   };
@@ -69,7 +69,7 @@ function PostPage() {
           className="flex max-w-5xl flex-col space-y-2"
         >
           <textarea
-            {...register("comment")}
+            {...register("comment", { required: true })}
             disabled={!session}
             className="h-24 rounder-md border border-gray-200 p-2 pl-4 outline-none disabled:bg-gray-50"
             placeholder={
@@ -78,6 +78,13 @@ function PostPage() {
                 : "Zaloguj się aby komentować"
             }
           />
+          {Object.keys(errors).length > 0 && (
+            <div className="space-y-2 p-2 text-red-500">
+              {errors.comment?.type === "required" && (
+                <p>- Treść jest wymagana</p>
+              )}
+            </div>
+          )}
           <button
             disabled={!session}
             type="submit"
