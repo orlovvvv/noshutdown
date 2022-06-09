@@ -28,16 +28,16 @@ function Header() {
           <InformationCircleIcon className="icon" />
         </Link>
       </div>
-      <div className="items-center space-x-2 flex">
+      <div className="space-x-2 flex">
         {session ? (
           <div
             onClick={() => signOut()}
-            className=" items-center text-black inline-flex"
+            className=" text-black inline-flex"
           >
-            <div className="flex-1 flex  text-xs p-2">
+            <div className="flex-1 flex text-xs p-2">
               <p className="truncate">{session?.user?.name}</p>
             </div>
-            <div className="items-center cursor-pointer space-x-2 border bg-sky-400 rounded-md p-2 lg:flex hover:bg-sky-400/80">
+            <div className="flex items-center cursor-pointer space-x-2 border bg-sky-400 rounded-md p-2 lg:flex hover:bg-sky-400/80">
               <div className="relative h-5 w-5 flex-shrink-0">
                 <LogoutIcon />
               </div>
@@ -47,7 +47,7 @@ function Header() {
         ) : (
           <div
             onClick={() => signIn()}
-            className=" cursor-pointer items-center space-x-2 border bg-sky-400/40 rounded-md p-2 ml-5 flex hover:bg-sky-400/80"
+            className=" flex cursor-pointer space-x-2 border bg-sky-400/40 rounded-md p-2 hover:bg-sky-400/80"
           >
             <div className="relative h-5 w-5 flex-shrink-0">
               <LoginIcon />
