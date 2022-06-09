@@ -28,7 +28,7 @@ function Header() {
           <InformationCircleIcon className="icon" />
         </Link>
       </div>
-      <div className="items-center space-x-2 hidden lg:flex">
+      <div className="items-center space-x-2 flex">
         {session ? (
           <div
             onClick={() => signOut()}
