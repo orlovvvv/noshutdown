@@ -6,7 +6,6 @@ import {
   InformationCircleIcon,
   LoginIcon,
   LogoutIcon,
-  SearchIcon,
 } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
@@ -15,24 +14,13 @@ function Header() {
   const { data: session } = useSession();
 
   return (
-    <div className="sticky top-0 z-50 bg-white px-4 py-2 shadow-sm flex items-center">
+    <div className="sticky top-0 z-50 bg-white px-4 py-2 shadow-sm flex items-start flex-1">
       <div className="relative h-10 w-20 flex-shrink-0 cursor-pointer mr-5">
         <Link href="/">
           <Image objectFit="contain" src={logo} layout="fill" alt="blur" />
         </Link>
       </div>
-
-      {/* Wyszukiwarka */}
-      <form className="flex flex-1 items-center space-x-2 border border-gray-400 rounded-md px-3 py-1 max-w-5xl">
-        <SearchIcon className="h-6 w-6 text-gray-400" />
-        <input
-          className="flex-1 bg-transparent outline-none"
-          type="text"
-          placeholder="Przeszukaj forum"
-        ></input>
-        <button type="submit" hidden />
-      </form>
-      <div className="ml-5 flex items-center space-x-2 text-gray-500">
+      <div className="flex flex-1 items-end space-x-2 text-gray-500">
       <Link href="/">
         <HomeIcon className="icon" />
         </Link>
@@ -40,13 +28,13 @@ function Header() {
           <InformationCircleIcon className="icon" />
         </Link>
       </div>
-      <div className="mx-2 items-center space-x-2">
+      <div className="items-center space-x-2 hidden lg:flex">
         {session ? (
           <div
             onClick={() => signOut()}
             className=" items-center text-black inline-flex"
           >
-            <div className="flex-1 flex text-xs p-2">
+            <div className="flex-1 flex  text-xs p-2">
               <p className="truncate">{session?.user?.name}</p>
             </div>
             <div className="items-center cursor-pointer space-x-2 border bg-sky-400 rounded-md p-2 lg:flex hover:bg-sky-400/80">
