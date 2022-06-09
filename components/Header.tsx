@@ -15,8 +15,8 @@ function Header() {
   const { data: session } = useSession();
 
   return (
-    <div className="sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm flex items-center">
-      <div className="relative h-16 w-32 flex-shrink-0 cursor-pointer mr-5">
+    <div className="sticky top-0 z-50 bg-white px-4 py-2 shadow-sm flex items-center">
+      <div className="relative h-10 w-20 flex-shrink-0 cursor-pointer mr-5">
         <Link href="/">
           <Image objectFit="contain" src={logo} layout="fill" alt="blur" />
         </Link>
